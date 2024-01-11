@@ -14,7 +14,7 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Login</Text>
+      <Text style={styles.header}>Login Simone</Text>
       <Image source={logo} style={styles.logo} />
       <TextInput
         placeholder="CPF"
