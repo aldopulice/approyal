@@ -10,6 +10,15 @@
     "preview": {
       "distribution": "internal"
     },
+    "internal": {
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "ios": {
+        "buildConfiguration": "Debug"
+      }
+    },
     "production": {
       "android": {
         "buildType": "app-bundle",
