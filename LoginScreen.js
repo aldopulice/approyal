@@ -1,20 +1,47 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, TouchableOpacity, Text, Image } from 'react-native';
-import styles from './styles'; // Certifique-se de que o caminho para styles.js está correto
-import logo from './assets/logo.jpeg'; // Certifique-se de que o caminho para a imagem do logo está correto
+import { View, TextInput, Button, Alert, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import styles from './styles';
+import logo from './assets/logo_sf.png';
 
 const LoginScreen = () => {
   const [cpf, setCpf] = useState('');
   const [password, setPassword] = useState('');
+  const navigation = useNavigation();
 
-  const handleLogin = () => {
-    // Implemente a lógica de autenticação aqui
-    console.log(cpf, password);
+  const handleLogin = async () => {
+    try {
+      const loginResponse = await fetch('http://vmi1327791.contaboserver.net:3000/login/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          usuario: cpf,
+          senha: password,
+        }),
+      });
+  
+      if (loginResponse.ok) {
+        const loginData = await loginResponse.json();
+        navigation.navigate('Main', {
+          screen: 'Home',
+          params: {
+            userName: loginData.nome,
+            userCpf: loginData.usuario
+          },
+        });
+      } else {
+        const errorData = await loginResponse.json();
+        Alert.alert("Falha no Login", errorData.message || "Erro desconhecido");
+      }
+    } catch (error) {
+      Alert.alert("Erro na Rede", "Não foi possível conectar ao servidor. Verifique sua conexão.");
+    }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Login Simone</Text>
       <Image source={logo} style={styles.logo} />
       <TextInput
         placeholder="CPF"
@@ -30,16 +57,7 @@ const LoginScreen = () => {
         secureTextEntry
         style={styles.input}
       />
-      <TouchableOpacity onPress={() => {}}>
-        <Text style={styles.forgotPassword}>Esqueceu a senha?</Text>
-      </TouchableOpacity>
       <Button title="Entrar" onPress={handleLogin} />
-      <TouchableOpacity onPress={() => {}}>
-        <Text style={styles.firstAccess}>Primeiro acesso para quem já é cliente</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => {}}>
-        <Text style={styles.knowAndSign}>Conheça e Assine</Text>
-      </TouchableOpacity>
     </View>
   );
 };

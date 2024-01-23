@@ -1,45 +1,69 @@
 import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
-    backgroundColor: '#fff', // Use a cor de fundo da sua escolha
   },
   header: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginVertical: 10,
-    color: 'navy', // Ajuste a cor conforme necessário
+    marginBottom: 20,
   },
   logo: {
-    width: 150, // Ajuste o tamanho conforme necessário
-    height: 150, // Ajuste o tamanho conforme necessário
-    resizeMode: 'contain', // Garante que o logo é redimensionado proporcionalmente
-    marginVertical: 20,
+    width: 250,
+    height: 200,
+    resizeMode: 'contain',
+    marginBottom: 20,
   },
   input: {
     width: '100%',
-    padding: 15,
+    padding: 10,
     marginVertical: 10,
     borderWidth: 1,
     borderColor: '#ddd',
     borderRadius: 4,
   },
   forgotPassword: {
-    color: '#0000FF',
-    marginTop: 5,
+    marginTop: 15,
+    color: '#0000ff',
   },
   firstAccess: {
-    color: '#0000FF',
     marginTop: 20,
+    color: '#0000ff',
   },
   knowAndSign: {
-    color: '#0000FF',
     marginTop: 20,
+    color: '#0000ff',
   },
-});
 
-export default styles;
+  //MODAL DE AVISO
+  centeredModal: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
+});
