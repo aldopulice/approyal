@@ -12,6 +12,8 @@ ENV PORT $PORT
 EXPOSE $PORT 19001 19002
 
 # install global packages
+RUN npm install --global expo-cli
+RUN npx expo-cli init react_native_app --npm
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH /home/node/.npm-global/bin:$PATH
 RUN npm i --unsafe-perm --allow-root -g npm@latest expo-cli@latest
