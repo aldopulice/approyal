@@ -23,10 +23,10 @@ RUN yarn add @expo/ngrok
 
 # install dependencies first, in a different location for easier app bind mounting for local development
 # due to default /opt permissions we have to create the dir with root and change perms
-RUN mkdir /opt/approyal && chown root:root /opt/approyal
+RUN mkdir /opt/approyal && chown ec2-user:ec2-user /opt/approyal
 WORKDIR /opt/approyal
 ENV PATH /opt/approyal/.bin:$PATH
-USER root
+USER ec2-user
 COPY package.json package-lock.json ./
 RUN yarn install
 
