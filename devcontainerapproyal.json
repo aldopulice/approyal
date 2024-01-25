@@ -1,0 +1,7 @@
+{
+    "name": "approyal",
+    "dockerComposeFile": "../docker-compose.yml",
+    "shutdownAction": "stopCompose",
+    "workspaceFolder": "/approyal",
+    "service": "dev"
+  }

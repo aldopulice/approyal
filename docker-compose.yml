@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  dev:
+    build: .
+    working_dir: /approyal
+    hostname: "dev-container-approyal"
+    ports:
+      - 19000:19000
+      - 19001:19001
+      - 19002:19002
+    volumes:
+      - "$PWD:/approyal"
+    command: /bin/sh -c "while sleep 1000; do :; done"
