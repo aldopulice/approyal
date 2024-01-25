@@ -1,4 +1,4 @@
-role_name="role-acesso-ssm"
+role_name="role-acesso-ssm-approyal"
 policy_name="AmazonSSMManagedInstanceCore"
 
 if aws iam get-role --role-name "$role_name" &> /dev/null; then
