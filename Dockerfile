@@ -28,7 +28,7 @@ WORKDIR /opt/approyal
 ENV PATH /opt/approyal/.bin:$PATH
 USER root
 COPY package.json package-lock.json ./
-RUN yarn install
+# RUN yarn install
 
 
 # copy in our source code last, as it changes the most
