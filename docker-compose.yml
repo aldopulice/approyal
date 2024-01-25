@@ -23,8 +23,6 @@ services:
           value: "zTBebkX2xny6ZJhT"
         - name: "MYSQL_DATABASE"
           value: "approyal"
-        - name: "MYSQL_ROOT_PASSWORD"
-          value: "zTBebkX2xny6ZJhT"
     volumes:
       - db:/var/lib/mysql/data
 volumes:
